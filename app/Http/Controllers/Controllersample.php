@@ -41,15 +41,17 @@ class Controllersample extends Controller {
 
     public function dashboard (){
         
-        return view('Dashboard');
+        return view ('Dashboard');
 
     }
 
     public function logout (){
         
-        return redirect()->route('#logout');
+        return view ('login');
 
     }
+
+
 
 
 }

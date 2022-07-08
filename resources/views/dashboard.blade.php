@@ -6,7 +6,7 @@
 <div class="main-content">
     <div class="dashboard">
         <h1>DASHBOARD</h1>
-        <button name="Logout" class="btn btn-lg btn-primary btn-block" type="signin">LOG OUT</button>
+        <button action="{{route('Logout')}}" method="get" class="btn btn-lg btn-primary btn-block" type="logout">LOG OUT</button>
     </div>
 </div>
 @endsection
