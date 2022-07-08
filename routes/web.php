@@ -25,3 +25,5 @@ Route::get('login', [Controllersample:: class, 'login'])->name('login');
 Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintrigname');
 
 Route::get('Dashboard', [Controllersample:: class, 'dashboard'])->name('Dashboard');
+
+Route::get('#logout', [Controllersample:: class, 'logout'])->name('Logout');

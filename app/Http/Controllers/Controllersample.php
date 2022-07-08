@@ -45,6 +45,13 @@ class Controllersample extends Controller {
 
     }
 
+    public function logout (){
+        
+        return redirect()->route('#logout');
+
+    }
+
+
 }
     
 
