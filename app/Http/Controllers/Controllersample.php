@@ -11,7 +11,7 @@ class Controllersample extends Controller {
         return view('login');
 
     }
-
+    
 
     ///public function LoginTrigfunc(Request $request){
         
@@ -35,6 +35,10 @@ class Controllersample extends Controller {
 
             return redirect()->route('login');
         }
+    }
+
+    public function semi_ut(){
+        return 'semi';
     }
         
 
