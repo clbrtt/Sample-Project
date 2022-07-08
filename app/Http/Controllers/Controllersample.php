@@ -36,6 +36,10 @@ class Controllersample extends Controller {
             return redirect()->route('login');
         }
     }
+
+    public function semi_ut(){
+        return 'semi';
+    }
         
 
 
