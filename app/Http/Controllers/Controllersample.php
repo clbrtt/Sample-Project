@@ -11,7 +11,7 @@ class Controllersample extends Controller {
         return view('login');
 
     }
-    //rallion branch
+    
 
     ///public function LoginTrigfunc(Request $request){
         
