@@ -16,9 +16,13 @@ class AuthModel extends Authenticatable
     use HasFactory;
     use Notifiable;
 
+    protected $table = 'account';
+
     protected $guard = 'admin';
 
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'ID';
+
+    public $timestamps = false;
 
     protected $fillable = [
         'Email', 'Password'

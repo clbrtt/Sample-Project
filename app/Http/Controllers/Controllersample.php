@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AuthModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class Controllersample extends Controller {
 
@@ -23,18 +27,33 @@ class Controllersample extends Controller {
    // }
 
     public function LoginTrigfunc (Request $request){
-        $Email = 'John@Email.com';
-        $Password = 123456;
-
-
-        if ($request->email== $Email && $request->pass== $Password) {
-            
-            return redirect()->route('Dashboard');
         
-        } else {
 
-            return redirect()->route('login');
+        $credentials = [
+    		'Email' => $request->email,
+    		'Password' => $request->pass,
+    	];
+
+    	if(Auth::guard('admin')->attempt($credentials)){
+    		return redirect()->route('Dashboard');
+    	}
+        else {
+            return view('login');
         }
+
+
+    }
+
+    public function Register (Request $register){
+
+       $Register = new AuthModel;
+
+       $Register->Email = $register->email;
+       $Register->Password = $register->pass;
+       $Register->save();
+
+       return view('login'); 
+       
     }
 
     

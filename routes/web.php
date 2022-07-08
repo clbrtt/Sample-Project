@@ -24,9 +24,11 @@ Route::get('login', [Controllersample:: class, 'login'])->name('login');
 
 Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintrigname');
 
+Route::post('register', [Controllersample:: class, 'Register'])->name('Sampleregister');
+
 Route::get('Dashboard', [Controllersample:: class, 'dashboard'])->name('Dashboard');
 
 Route::get('#logout', [Controllersample:: class, 'logout'])->name('Logout');
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
