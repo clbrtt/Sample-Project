@@ -27,3 +27,6 @@ Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintr
 Route::get('Dashboard', [Controllersample:: class, 'dashboard'])->name('Dashboard');
 
 Route::get('#logout', [Controllersample:: class, 'logout'])->name('Logout');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

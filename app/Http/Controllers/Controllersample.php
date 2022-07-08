@@ -37,12 +37,8 @@ class Controllersample extends Controller {
         }
     }
 
-    public function semi_ut(){
-        return 'semi';
-    }
+    
         
-
-
     public function dashboard (){
         
         return view ('Dashboard');
@@ -51,7 +47,7 @@ class Controllersample extends Controller {
 
     public function logout (){
         
-        return view ('login');
+        return redirect()->route('login');
 
     }
 
