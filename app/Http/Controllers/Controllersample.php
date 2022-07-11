@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AuthModel;
+use App\Models\Prodmodel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -35,17 +36,18 @@ class Controllersample extends Controller {
 
     public function LoginTrigfunc (Request $request){
         
+        
+        $credentials = [
+    		'username' => $request->email,
+    		'password' => $request->pass,
+    	];
 
-       /* $credentials = [
-    		'Email' => $request->email,
-    		'Password' => $request->pass
-    	];*/
-
-    	if(Auth::guard('admin')->attempt(['Email' => $request->email, 'Password' => $request->pass])){
+    	if(Auth::guard('admin')->attempt($credentials)){
     		return redirect()->route('Dashboard');
     	}
         else {
-            return view('login');
+            // return view('login');
+            return dd('mali ang password');
         }
 
 
@@ -55,17 +57,28 @@ class Controllersample extends Controller {
 
        $Register = new AuthModel;
 
-       $Register->Email = $register->email;
-       $Register->Password = $register->pass;
+       $Register->username = $register->email;
+       $Register->password = $register->pass;
        $Register->save();
 
        return view('login'); 
        
     }
 
-    
+    public function Products (Request $prods){
+
+        $Products = new Prodmodel;
+ 
+        $Products->prod_name = $prods->prodname;
+        $Products->category = $prods->category;
+        $Products->qty = $prods->qty;
+        $Products->save();
+ 
+        return view('Dashboard'); 
         
-    public function dashboard (){
+     }    
+    
+    public function dashboard(){
         
         return view ('Dashboard');
 
@@ -73,7 +86,7 @@ class Controllersample extends Controller {
 
     public function logout (){
         
-        return redirect()->route('login');
+        return view('login');
 
     }
 

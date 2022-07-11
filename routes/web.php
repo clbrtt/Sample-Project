@@ -28,7 +28,8 @@ Route::post('register', [Controllersample:: class, 'Register'])->name('Samplereg
 
 Route::get('Dashboard', [Controllersample:: class, 'dashboard'])->name('Dashboard');
 
-Route::get('#logout', [Controllersample:: class, 'logout'])->name('Logout');
-//Auth::routes();
+Route::post('Dashboard', [Controllersample:: class, 'Products'])->name('Sampleproducts');
+
+Route::get('logout', [Controllersample:: class, 'logout'])->name('Logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

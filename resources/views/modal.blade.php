@@ -11,7 +11,7 @@
                 <form class="form-signin" action="{{route('logintrigname')}}" method="post">
                     @csrf
                     <label for="InputEmail" class="sr-only">EMAIL</label>
-                    <input type="text" name="email" id="InputEmail" class="form-control" placeholder="Email" required=""
+                    <input type="username" name="email" id="InputEmail" class="form-control" placeholder="Email" required=""
                         autofocus="">
                     <br>
                     <label for="InputPass" class="sr-only">PASSWORD</label>

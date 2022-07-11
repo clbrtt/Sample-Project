@@ -20,11 +20,11 @@ class AuthModel extends Authenticatable
 
     protected $guard = 'admin';
 
-    protected $primaryKey = 'ID';
+    protected $primaryKey = 'id';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'Email', 'Password'
+        'username', 'password'
     ];
 }
