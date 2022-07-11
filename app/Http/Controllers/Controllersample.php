@@ -7,8 +7,15 @@ use App\Models\AuthModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class Controllersample extends Controller {
+
+    use AuthenticatesUsers;
+
+    public function __construct(){
+    	$this->middleware('guest:admin');
+    }
 
     public function login (){
         
@@ -29,12 +36,12 @@ class Controllersample extends Controller {
     public function LoginTrigfunc (Request $request){
         
 
-        $credentials = [
+       /* $credentials = [
     		'Email' => $request->email,
-    		'Password' => $request->pass,
-    	];
+    		'Password' => $request->pass
+    	];*/
 
-    	if(Auth::guard('admin')->attempt($credentials)){
+    	if(Auth::guard('admin')->attempt(['Email' => $request->email, 'Password' => $request->pass])){
     		return redirect()->route('Dashboard');
     	}
         else {
