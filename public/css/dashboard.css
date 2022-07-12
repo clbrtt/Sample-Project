@@ -1,10 +1,42 @@
 .form-products {
     position: relative;
     width: 300px;
+    left: 10px;
 }
 
 .logout {
     position: relative;
-    left: 495px;
+    left: 428px;
     top: -285px;
+}
+
+.table-1 {
+    position: absolute;
+    width: 768px;
+    overflow-y: scroll;
+    height: 238px;
+    top: 71px;
+    left: 343px;
+}
+
+.table-1 table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table-1 td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .table-1 tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .butt2 {
+    position: relative;
+    top: 20px;
+    left: 526px;
 }

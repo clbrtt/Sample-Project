@@ -21,6 +21,24 @@
                     <button class="btn btn-lg btn-primary btn-block" type="submit">SUBMIT</button>
                 </form>
 
+    <div class="table-1">
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+            </tr>
+            @foreach($data as $prod)
+            <tr>
+                <td>{{$prod->prod_name}}</td>
+                <td>{{$prod->category}}</td>
+                <td>{{$prod->qty}}</td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
+        <button type="button" method="get" class="butt2 edit btn btn-primary" type="edit">Edit</button>
+        <button type="button" method="get" class="butt2 delete btn btn-primary" type="delete">Delete</button>
         <a href="/login"><button type="button" action="{{route('Logout')}}" method="get" class="butt1 logout btn btn-primary" type="logout">LOG OUT</button></a>
     </div>
 </div>

@@ -74,13 +74,14 @@ class Controllersample extends Controller {
         $Products->qty = $prods->qty;
         $Products->save();
  
-        return view('Dashboard'); 
+        return back(); 
         
      }    
     
     public function dashboard(){
+        $prods= Prodmodel::get();
         
-        return view ('Dashboard');
+        return view ('Dashboard')->with('data', $prods);
 
     }
 
