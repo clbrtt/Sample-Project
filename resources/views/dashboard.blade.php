@@ -27,18 +27,20 @@
                 <th>Product Name</th>
                 <th>Category</th>
                 <th>Quantity</th>
+                <th>Action</th>
             </tr>
             @foreach($data as $prod)
             <tr>
                 <td>{{$prod->prod_name}}</td>
                 <td>{{$prod->category}}</td>
                 <td>{{$prod->qty}}</td>
+                <td><a href="/delete/{{$prod->id}}" class="btn btn-info">Delete</a></td>
             </tr>
             @endforeach
         </table>
     </div>
         <button type="button" method="get" class="butt2 edit btn btn-primary" type="edit">Edit</button>
-        <button type="button" method="get" class="butt2 delete btn btn-primary" type="delete">Delete</button>
+        <a href="/delete/id"><button type="button" method="get" class="butt2 delete btn btn-primary" type="delete">Delete</button></a>
         <a href="/login"><button type="button" action="{{route('Logout')}}" method="get" class="butt1 logout btn btn-primary" type="logout">LOG OUT</button></a>
     </div>
 </div>

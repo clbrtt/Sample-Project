@@ -91,6 +91,15 @@ class Controllersample extends Controller {
 
     }
 
+    public function delete_id($id){
+
+        $delete = Prodmodel::find($id);
+        $delete->delete();
+
+        return back();
+
+    }
+
 
 
 

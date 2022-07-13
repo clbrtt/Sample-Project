@@ -28,6 +28,8 @@ Route::post('register', [Controllersample:: class, 'Register'])->name('Samplereg
 
 Route::get('Dashboard', [Controllersample:: class, 'dashboard'])->name('Dashboard');
 
+Route::get('delete/{id}', [Controllersample:: class, 'delete_id']);
+
 Route::post('Dashboard', [Controllersample:: class, 'Products'])->name('Sampleproducts');
 
 Route::get('logout', [Controllersample:: class, 'logout'])->name('Logout');
