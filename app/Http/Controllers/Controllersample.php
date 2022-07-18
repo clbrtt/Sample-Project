@@ -39,11 +39,17 @@ class Controllersample extends Controller {
         
         
 
-        $input = $request->all();
+        /*$input = $request->all();
 
         $this->validate($request, [
             'username' => 'email',
             'password' => 'pass',
+        ]);*/
+
+        $request->validate([
+            'email' => 'required|email',
+            'pass' => 'required',
+           
         ]);
 
 
@@ -52,7 +58,7 @@ class Controllersample extends Controller {
     		'password' => Hash::make($request->pass),
     	];
 
-    	if(Auth::guard('admin')->attempt($credentials)){
+    	if(auth::guard('admin')->attempt($credentials)){
     		return redirect()->route('Dashboard');
     	}
         else {
