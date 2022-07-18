@@ -38,7 +38,7 @@
             </tr>
             @endforeach
         </table>
-    </div>
+    </div> 
         <button type="button" method="get" class="butt2 edit btn btn-primary" type="edit">Edit</button>
         <a href="/delete/id"><button type="button" method="get" class="butt2 delete btn btn-primary" type="delete">Delete</button></a>
         <a href="/login"><button type="button" action="{{route('Logout')}}" method="get" class="butt1 logout btn btn-primary" type="logout">LOG OUT</button></a>

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 
@@ -26,5 +26,9 @@ class AuthModel extends Authenticatable
 
     protected $fillable = [
         'username', 'password'
+    ];
+
+    protected $hidden = [
+        'password'
     ];
 }

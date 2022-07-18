@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Hash;
 
 class Controllersample extends Controller {
 
@@ -37,9 +38,18 @@ class Controllersample extends Controller {
     public function LoginTrigfunc (Request $request){
         
         
+
+        $input = $request->all();
+
+        $this->validate($request, [
+            'username' => 'email',
+            'password' => 'pass',
+        ]);
+
+
         $credentials = [
     		'username' => $request->email,
-    		'password' => $request->pass,
+    		'password' => Hash::make($request->pass),
     	];
 
     	if(Auth::guard('admin')->attempt($credentials)){
@@ -58,7 +68,7 @@ class Controllersample extends Controller {
        $Register = new AuthModel;
 
        $Register->username = $register->email;
-       $Register->password = $register->pass;
+       $Register->password = Hash::make($register->pass);
        $Register->save();
 
        return view('login'); 
