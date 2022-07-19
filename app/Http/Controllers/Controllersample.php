@@ -15,17 +15,14 @@ class Controllersample extends Controller {
 
     use AuthenticatesUsers;
 
-    public function __construct(){
-    	$this->middleware('guest:admin');
-    }
 
     public function login (){
         
         return view('login');
 
     }
-    
 
+    
     ///public function LoginTrigfunc(Request $request){
         
 
@@ -37,34 +34,14 @@ class Controllersample extends Controller {
 
     public function LoginTrigfunc (Request $request){
 
-            $input = $request->all();
-       
-            $this->validate($request, [
-                'username' => 'required|email',
-                'password' => 'required',
-            ]);
-       
-            if(auth()->attempt(array('username' => $input['email'], 'password' => $input['pass'])))
-            {
-                if (auth()->user()->admin == 1) {
-                    return redirect()->route('Dashboard');
-                }else{
-                    return redirect()->route('login');
-                }
-            }else{
-                return redirect()->route('login')
-                    ->with('error','Email-Address And Password Are Wrong.');
-            }
-
-        
-       /* $request->validate([
+       $request->validate([
             'email' => 'required|email',
             'pass' => 'required',
            
         ]);
 
 
-        $inputs = [
+       $inputs = [
     		'username' => $request->email,
     		'password' => Hash::make($request->pass),
     	];
@@ -74,9 +51,9 @@ class Controllersample extends Controller {
     	}
         else {
             // return view('login');
-            return dd('mali ang password');
-        }*/
-
+           // return dd('mali ang password');
+           return redirect()->route('Dashboard');
+        }
 
     }
 
@@ -105,12 +82,6 @@ class Controllersample extends Controller {
         
      }    
     
-    public function dashboard(){
-        $prods= Prodmodel::get();
-        
-        return view ('Dashboard')->with('data', $prods);
-
-    }
 
     public function logout (){
         

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controllersample;
+use App\Http\Controllers\Dashboardcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,15 +20,13 @@ Route::get('/', function () {
 });
 
 
-use App\Http\Controllers\Controllersample;
-
 Route::get('login', [Controllersample:: class, 'login'])->name('login');
 
-Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintrigname')->middleware('admin');
+Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintrigname');
 
 Route::post('register', [Controllersample:: class, 'Register'])->name('Sampleregister');
 
-Route::get('Dashboard', [Controllersample:: class, 'dashboard'])->name('Dashboard');
+Route::get('Dashboard', [Dashboardcontroller:: class, 'dashboard'])->name('Dashboard');
 
 Route::get('delete/{id}', [Controllersample:: class, 'delete_id']);
 
@@ -36,6 +36,3 @@ Route::get('logout', [Controllersample:: class, 'logout'])->name('Logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
-Route::get('Dashboard', [Controllersample::class, 'dashhome'])->name('Sampleproducts')->middleware('admin');
