@@ -36,35 +36,46 @@ class Controllersample extends Controller {
    // }
 
     public function LoginTrigfunc (Request $request){
+
+            $input = $request->all();
+       
+            $this->validate($request, [
+                'username' => 'required|email',
+                'password' => 'required',
+            ]);
+       
+            if(auth()->attempt(array('username' => $input['email'], 'password' => $input['pass'])))
+            {
+                if (auth()->user()->admin == 1) {
+                    return redirect()->route('Dashboard');
+                }else{
+                    return redirect()->route('login');
+                }
+            }else{
+                return redirect()->route('login')
+                    ->with('error','Email-Address And Password Are Wrong.');
+            }
+
         
-        
-
-        /*$input = $request->all();
-
-        $this->validate($request, [
-            'username' => 'email',
-            'password' => 'pass',
-        ]);*/
-
-        $request->validate([
+       /* $request->validate([
             'email' => 'required|email',
             'pass' => 'required',
            
         ]);
 
 
-        $credentials = [
+        $inputs = [
     		'username' => $request->email,
     		'password' => Hash::make($request->pass),
     	];
 
-    	if(auth::guard('admin')->attempt($credentials)){
+    	if (Auth::guard('admin')->attempt($inputs)){
     		return redirect()->route('Dashboard');
     	}
         else {
             // return view('login');
             return dd('mali ang password');
-        }
+        }*/
 
 
     }
@@ -115,6 +126,8 @@ class Controllersample extends Controller {
         return back();
 
     }
+
+
 
 
 

@@ -22,7 +22,7 @@ use App\Http\Controllers\Controllersample;
 
 Route::get('login', [Controllersample:: class, 'login'])->name('login');
 
-Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintrigname');
+Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintrigname')->middleware('admin');
 
 Route::post('register', [Controllersample:: class, 'Register'])->name('Sampleregister');
 
@@ -35,3 +35,7 @@ Route::post('Dashboard', [Controllersample:: class, 'Products'])->name('Samplepr
 Route::get('logout', [Controllersample:: class, 'logout'])->name('Logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::get('Dashboard', [Controllersample::class, 'dashhome'])->name('Sampleproducts')->middleware('admin');
