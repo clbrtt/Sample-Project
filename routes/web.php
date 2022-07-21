@@ -20,15 +20,19 @@ Route::get('/', function () {
 });
 
 
-Route::get('login', [Controllersample:: class, 'login'])->name('login');
+Route::get('login', [Controllersample:: class, 'Login'])->name('testlogin');
 
 Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintrigname');
 
 Route::post('register', [Controllersample:: class, 'Register'])->name('Sampleregister');
 
-Route::get('Dashboard', [Dashboardcontroller:: class, 'admindashboard'])->name('Sampleproducts')->middleware('guest:admin');
+//Route::get('dashboard', [Dashboardcontroller:: class, 'admindashboard'])->middleware('guest:admin');
 
-Route::post('Dashboard', [Dashboardcontroller:: class, 'Products'])->name('Sampleproducts');
+Route::middleware('auth:admin')->group(function(){
+    Route::get('dashboard', [Dashboardcontroller:: class, 'admindashboard']);
+});
+
+Route::post('dashboard', [Dashboardcontroller:: class, 'Products'])->name('Sampleproducts');
 
 Route::get('delete/{id}', [Dashboardcontroller:: class, 'delete_id']);
 

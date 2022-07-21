@@ -15,8 +15,11 @@ class Controllersample extends Controller {
 
     use AuthenticatesUsers;
 
-
-    public function login (){
+     public function __construct(){
+    	$this->middleware('guest:admin');
+    }
+    
+    public function Login (){
         
         return view('login');
 
@@ -33,7 +36,7 @@ class Controllersample extends Controller {
         $inputs = $request->only('username', 'password');
 
     	if(Auth::guard('admin')->attempt($inputs)){
-    		return view('Dashboard');
+    		return redirect('/dashboard');
     	}
         else {
             return view('login');

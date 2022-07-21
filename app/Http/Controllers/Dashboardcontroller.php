@@ -8,15 +8,15 @@ use App\Models\Prodmodel;
 
 class Dashboardcontroller extends Controller {
 
-    public function __construct(){
+    /*public function __construct(){
     	$this->middleware('guest:admin');
-    }
+    }*/
     
     public function admindashboard(){
         $prods= Prodmodel::get();
         
-        return view('Dashboard');
-       // return view('dashboard',['data'=>$data]);
+        return view('dashboard')->with('data', $prods);
+     
 
     }
 
