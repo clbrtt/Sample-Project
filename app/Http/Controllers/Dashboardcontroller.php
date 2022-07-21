@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AuthModel;
 use App\Models\Prodmodel;
 
 
@@ -13,10 +12,39 @@ class Dashboardcontroller extends Controller {
     	$this->middleware('guest:admin');
     }
     
-    public function dashboard(){
+    public function admindashboard(){
         $prods= Prodmodel::get();
         
-        return view ('Dashboard')->with('data', $prods);
+        return view('Dashboard');
+       // return view('dashboard',['data'=>$data]);
+
+    }
+
+    public function Products(Request $prods){
+
+        $Products = new Prodmodel;
+ 
+        $Products->prod_name = $prods->prod_name;
+        $Products->category = $prods->category;
+        $Products->qty = $prods->qty;
+        $Products->save();
+ 
+        return back(); 
+        
+     }
+
+     public function delete_id($id){
+
+        $delete = Prodmodel::find($id);
+        $delete->delete();
+
+        return back();
+
+    }
+
+    public function logout (){
+        
+        return view('login');
 
     }
 

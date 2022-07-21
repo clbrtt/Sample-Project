@@ -22,37 +22,21 @@ class Controllersample extends Controller {
 
     }
 
-    
-    ///public function LoginTrigfunc(Request $request){
-        
-
-        
-       // return dd($request->all());
-      // return view('Dashboard');
-
-   // }
-
     public function LoginTrigfunc (Request $request){
 
        $request->validate([
-            'email' => 'required|email',
-            'pass' => 'required',
+            'username' => 'required|email',
+            'password' => 'required',
            
         ]);
 
+        $inputs = $request->only('username', 'password');
 
-       $inputs = [
-    		'username' => $request->email,
-    		'password' => Hash::make($request->pass),
-    	];
-
-    	if (Auth::guard('admin')->attempt($inputs)){
-    		return redirect()->route('Dashboard');
+    	if(Auth::guard('admin')->attempt($inputs)){
+    		return view('Dashboard');
     	}
         else {
-            // return view('login');
-           // return dd('mali ang password');
-           return redirect()->route('Dashboard');
+            return view('login');
         }
 
     }
@@ -61,48 +45,13 @@ class Controllersample extends Controller {
 
        $Register = new AuthModel;
 
-       $Register->username = $register->email;
-       $Register->password = Hash::make($register->pass);
+       $Register->username = $register->username;
+       $Register->password = Hash::make($register->password);
        $Register->save();
 
        return view('login'); 
        
     }
-
-    public function Products (Request $prods){
-
-        $Products = new Prodmodel;
- 
-        $Products->prod_name = $prods->prodname;
-        $Products->category = $prods->category;
-        $Products->qty = $prods->qty;
-        $Products->save();
- 
-        return back(); 
-        
-     }    
-    
-
-    public function logout (){
-        
-        return view('login');
-
-    }
-
-    public function delete_id($id){
-
-        $delete = Prodmodel::find($id);
-        $delete->delete();
-
-        return back();
-
-    }
-
-
-
-
-
-
 }
     
 

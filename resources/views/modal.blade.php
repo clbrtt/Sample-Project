@@ -11,11 +11,11 @@
                 <form class="form-signin" action="{{route('logintrigname')}}" method="post">
                     @csrf
                     <label for="InputEmail" class="sr-only">EMAIL</label>
-                    <input type="username" name="email" id="InputEmail" class="form-control" placeholder="Email" required=""
+                    <input type="username" name="username" id="InputEmail" class="form-control" placeholder="Email" required=""
                         autofocus="">
                     <br>
                     <label for="InputPass" class="sr-only">PASSWORD</label>
-                    <input type="password" name="pass" id="InputPass" class="form-control" placeholder="Password"
+                    <input type="password" name="password" id="InputPass" class="form-control" placeholder="Password"
                         required="">
                     <br>
                     <div class="checkbox mb-3">
@@ -48,11 +48,11 @@
                 <form class="form-register" action="{{route('Sampleregister')}}" method="post">
                     @csrf
                     <label for="InputEmail" class="sr-only">EMAIL</label>
-                    <input type="text" name="email" id="InputEmail" class="form-control" placeholder="Email" required=""
+                    <input type="text" name="username" id="InputEmail" class="form-control" placeholder="Email" required=""
                         autofocus="">
                     <br>
                     <label for="InputPass" class="sr-only">PASSWORD</label>
-                    <input type="password" name="pass" id="InputPass" class="form-control" placeholder="Password"
+                    <input type="password" name="password" id="InputPass" class="form-control" placeholder="Password"
                         required="">
                     <br>
                     <button class="btn btn-lg btn-primary btn-block" type="Register">SUBMIT</button>

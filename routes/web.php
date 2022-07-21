@@ -26,13 +26,13 @@ Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintr
 
 Route::post('register', [Controllersample:: class, 'Register'])->name('Sampleregister');
 
-Route::get('Dashboard', [Dashboardcontroller:: class, 'dashboard'])->name('Dashboard');
+Route::get('Dashboard', [Dashboardcontroller:: class, 'admindashboard'])->name('Sampleproducts')->middleware('guest:admin');
 
-Route::get('delete/{id}', [Controllersample:: class, 'delete_id']);
+Route::post('Dashboard', [Dashboardcontroller:: class, 'Products'])->name('Sampleproducts');
 
-Route::post('Dashboard', [Controllersample:: class, 'Products'])->name('Sampleproducts');
+Route::get('delete/{id}', [Dashboardcontroller:: class, 'delete_id']);
 
-Route::get('logout', [Controllersample:: class, 'logout'])->name('Logout');
+Route::get('logout', [Dashboardcontroller:: class, 'logout'])->name('Logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
