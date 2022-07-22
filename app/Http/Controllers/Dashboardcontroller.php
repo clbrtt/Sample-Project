@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Prodmodel;
 use Illuminate\Support\Facades\Auth;
-
+use Alert;
 
 class Dashboardcontroller extends Controller {
+
+    
 
     /*public function __construct(){
     	$this->middleware('guest:admin');
@@ -29,6 +31,7 @@ class Dashboardcontroller extends Controller {
         $Products->category = $prods->category;
         $Products->qty = $prods->qty;
         $Products->save();
+        Alert::success('Success Title', 'Success Message');
  
         return back(); 
         
