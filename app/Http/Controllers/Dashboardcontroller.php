@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Prodmodel;
+use Illuminate\Support\Facades\Auth;
 
 
 class Dashboardcontroller extends Controller {
@@ -42,12 +43,16 @@ class Dashboardcontroller extends Controller {
 
     }
 
-    public function logout (){
-        
-        return view('login');
+    public function logout(){
 
-    }
-
+    Auth::logout();
+ 
+    session()->invalidate();
+ 
+    session()->regenerateToken();
+ 
+    return redirect('/login');
+}
 
 
 }

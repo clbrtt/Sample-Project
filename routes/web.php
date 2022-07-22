@@ -26,17 +26,14 @@ Route::post('login', [Controllersample:: class, 'LoginTrigfunc'])->name('logintr
 
 Route::post('register', [Controllersample:: class, 'Register'])->name('Sampleregister');
 
-//Route::get('dashboard', [Dashboardcontroller:: class, 'admindashboard'])->middleware('guest:admin');
-
 Route::middleware('auth:admin')->group(function(){
     Route::get('dashboard', [Dashboardcontroller:: class, 'admindashboard']);
+    Route::get('logout', [Dashboardcontroller:: class, 'logout'])->name('Logout');
 });
 
 Route::post('dashboard', [Dashboardcontroller:: class, 'Products'])->name('Sampleproducts');
 
 Route::get('delete/{id}', [Dashboardcontroller:: class, 'delete_id']);
-
-Route::get('logout', [Dashboardcontroller:: class, 'logout'])->name('Logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
