@@ -8,6 +8,21 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body input').val(recipient)
   });
 
-  $(document).ready(function () {
+  /*$(document).ready(function () {
     $('#tbl-sample').DataTable();
+});*/
+
+$('#search-1').on('keypress', function(){
+
+  var search1 = $('#search-1').val();
+  $.ajax({
+    url: '/search/' + search1,
+    type: 'get',
+   dataType: 'json',
+   success: function(response){
+         console.log(response);
+   }
+  });
+  alert(search1);
 });
+

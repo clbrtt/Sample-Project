@@ -39,26 +39,32 @@
                 </div>
             </div>
         </div>
+
         <div class="table-1 ">
+            <div class="search-container" id="search-1">
+                <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                </form>
+            </div>
             <table id="tbl-sample" class="table table-striped table-bordered">
                 <thead>
-                <tr>
-                    <th>Product Name</th>
-                    <th>Category</th>
-                    <th>Quantity</th>
-                    <th>Action</th>
-                </tr>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 @foreach($data as $prod)
                 <tbody>
-                <tr>
-                    <td>{{$prod->prod_name}}</td>
-                    <td>{{$prod->category}}</td>
-                    <td>{{$prod->qty}}</td>
-                    <td><a href="" class="inner-butt btn btn-info bi bi-pencil"></a>
-                        <a href="/delete/{{$prod->id}}" class="inner-butt btn btn-danger bi bi-trash"></a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{$prod->prod_name}}</td>
+                        <td>{{$prod->category}}</td>
+                        <td>{{$prod->qty}}</td>
+                        <td><a href="" class="inner-butt btn btn-info bi bi-pencil"></a>
+                            <a href="/delete/{{$prod->id}}" class="inner-butt btn btn-danger bi bi-trash"></a>
+                        </td>
+                    </tr>
                 </tbody>
                 @endforeach
             </table>
@@ -67,7 +73,8 @@
             <button type="button" class="Addbutt btn btn-info bi bi-plus-square" data-toggle="modal"
                 data-target="#exampleadd" data-whatever="@mdo"></button>
         </div>
-        <a href="/logout"><button type="button" class="butt1 logout bi bi-door-open btn btn-primary" type="logout">LOG OUT</button></a>
+        <a href="/logout"><button type="button" class="butt1 logout bi bi-door-open btn btn-primary" type="logout">LOG
+                OUT</button></a>
     </div>
 </div>
 @endsection

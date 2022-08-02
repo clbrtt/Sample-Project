@@ -29,6 +29,7 @@ Route::post('register', [Controllersample:: class, 'Register'])->name('Samplereg
 Route::middleware('auth:admin')->group(function(){
     Route::get('dashboard', [Dashboardcontroller:: class, 'admindashboard']);
     Route::get('logout', [Dashboardcontroller:: class, 'logout'])->name('Logout');
+    Route::get('/search/{text}', [Dashboardcontroller::class, 'searchProduct']);
 });
 
 Route::post('dashboard', [Dashboardcontroller:: class, 'Products'])->name('Sampleproducts');

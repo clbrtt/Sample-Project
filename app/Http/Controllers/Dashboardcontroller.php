@@ -33,7 +33,7 @@ class Dashboardcontroller extends Controller {
         $Products->save();
         Alert::success('Success Title', 'Success Message');
  
-        return back(); 
+        return back();
         
      }
 
@@ -48,14 +48,18 @@ class Dashboardcontroller extends Controller {
 
     public function logout(){
 
-    Auth::logout();
- 
-    session()->invalidate();
- 
-    session()->regenerateToken();
- 
-    return redirect('/login');
-}
+        Auth::logout();
+    
+        session()->invalidate();
+    
+        session()->regenerateToken();
+    
+        return redirect('/login');
+    }
+
+    public function searchProduct($Search1){
+        return json_encode($Search1);
+    }
 
 
 }
