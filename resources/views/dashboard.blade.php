@@ -41,9 +41,9 @@
         </div>
 
         <div class="table-1 ">
-            <div class="search-container" id="search-1">
+            <div class="search-container">
                 <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
+                    <input id="search-1" type="text" placeholder="Search.." name="search">
                 </form>
             </div>
             <table id="tbl-sample" class="table table-striped table-bordered">
