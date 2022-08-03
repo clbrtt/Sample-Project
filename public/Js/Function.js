@@ -12,7 +12,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     $('#tbl-sample').DataTable();
 });*/
 
-$('#search-1').on('keypress', function(){
+$('#search-1').on('input', function(){
 
   var search1 = $('#search-1').val();
   $.ajax({
@@ -20,9 +20,14 @@ $('#search-1').on('keypress', function(){
     type: 'get',
    dataType: 'json',
    success: function(response){
+         $('#tbl-sample').empty();
          console.log(response);
+         $.each(response, function(key, value){
+          
+          $('#tbl-sample').append('<tr><td>'+value.prod_name+'</td></tr>');
+       });
+      
    }
   });
-  alert(search1);
 });
 

@@ -23,6 +23,11 @@ class Dashboardcontroller extends Controller {
 
     }
 
+    public function edit_prod($id){
+        $prods = Prodmodel::where('id', '=', $id )->first();
+        return view('edit')->with('data', $prods);
+    }
+
     public function Products(Request $prods){
 
         $Products = new Prodmodel;
@@ -31,7 +36,7 @@ class Dashboardcontroller extends Controller {
         $Products->category = $prods->category;
         $Products->qty = $prods->qty;
         $Products->save();
-        Alert::success('Success Title', 'Success Message');
+        Alert::success('Success', 'Success Input');
  
         return back();
         
@@ -58,6 +63,8 @@ class Dashboardcontroller extends Controller {
     }
 
     public function searchProduct($Search1){
+
+        $Search1 = Prodmodel::where('prod_name', 'LIKE', $Search1)->get();
         return json_encode($Search1);
     }
 

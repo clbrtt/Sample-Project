@@ -42,9 +42,7 @@
 
         <div class="table-1 ">
             <div class="search-container">
-                <form action="/action_page.php">
                     <input id="search-1" type="text" placeholder="Search.." name="search">
-                </form>
             </div>
             <table id="tbl-sample" class="table table-striped table-bordered">
                 <thead>
@@ -61,7 +59,7 @@
                         <td>{{$prod->prod_name}}</td>
                         <td>{{$prod->category}}</td>
                         <td>{{$prod->qty}}</td>
-                        <td><a href="" class="inner-butt btn btn-info bi bi-pencil"></a>
+                        <td><a href="{{ url('edit/'.$prod->id) }}" class="inner-butt btn btn-info bi bi-pencil"></a>
                             <a href="/delete/{{$prod->id}}" class="inner-butt btn btn-danger bi bi-trash"></a>
                         </td>
                     </tr>
@@ -73,8 +71,7 @@
             <button type="button" class="Addbutt btn btn-info bi bi-plus-square" data-toggle="modal"
                 data-target="#exampleadd" data-whatever="@mdo"></button>
         </div>
-        <a href="/logout"><button type="button" class="butt1 logout bi bi-door-open btn btn-primary" type="logout">LOG
-                OUT</button></a>
+        <a href="/logout"><button type="button" class="butt1 logout bi bi-door-open btn btn-primary" type="logout">LOG OUT</button></a>
     </div>
 </div>
 @endsection
