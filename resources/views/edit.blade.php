@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form>
+                    <form action="{{ url('update-table/'.$data->id)}}" method="post">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="">Product Name</label>

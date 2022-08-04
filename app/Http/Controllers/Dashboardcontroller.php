@@ -28,6 +28,16 @@ class Dashboardcontroller extends Controller {
         return view('edit')->with('data', $prods);
     }
 
+    public function update(Request $request, $id){
+        $prods = Prodmodel::where('id', '=', $id )->first();
+        $prods->prod_name = $request->input('prod_name');
+        $prods->category = $request->input('category');
+        $prods->qty = $request->input('qty');
+        $prods->update();
+        return redirect()->back()->with('Status', 'Updated Successfully');
+
+    }
+
     public function Products(Request $prods){
 
         $Products = new Prodmodel;
