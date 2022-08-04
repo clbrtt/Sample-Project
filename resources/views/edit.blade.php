@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="{{ url('update-table/'.$data->id)}}" method="post">
+                    <form action="{{ route('update-tables')}}" method="post">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="">Product Name</label>
@@ -26,11 +26,11 @@
                         <div class="form-group mb-3">
                             <label for="">Quantity</label>
                             <input type="text" name="qty" value="{{$data->qty}}" class="form-control">
+                            <input type="hidden" name="id" value="{{$data}}">
                         </div>
                         <div class="form-group mb-3">
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>
-
                     </form>
 
                 </div>

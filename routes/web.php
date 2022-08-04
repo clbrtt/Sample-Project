@@ -29,7 +29,7 @@ Route::post('register', [Controllersample:: class, 'Register'])->name('Samplereg
 Route::middleware('auth:admin')->group(function(){
     Route::get('dashboard', [Dashboardcontroller:: class, 'admindashboard']);
     Route::get('edit/{id}',[Dashboardcontroller:: class, 'edit_prod']);
-    Route::post('update-table/{id}', [Dashboardcontroller:: class, 'update']);
+    Route::post('update-table', [Dashboardcontroller:: class, 'update'])->name('update-tables');
     Route::get('logout', [Dashboardcontroller:: class, 'logout'])->name('Logout');
     Route::get('/search/{text}', [Dashboardcontroller::class, 'searchProduct']);
 });
